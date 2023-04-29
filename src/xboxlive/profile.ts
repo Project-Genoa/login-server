@@ -102,7 +102,7 @@ router.post('/users/batch/profile/settings', (req, res) => {
     res.end()
     return
   }
-  const token = jwt.verify<TokenTypes.Xbox.XapiToken>(authorization.tokenString, config.xboxlive.authTokenSecret)?.data
+  const token = jwt.verify<TokenTypes.Xbox.XapiToken>(authorization.tokenString, config.xboxlive.xapiTokenSecret)?.data
   if (token == null || token.userId != authorization.userId) {
     res.status(401)
     res.end()
